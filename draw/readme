@@ -1,0 +1,21 @@
+walker2d seed
+    sac [0, 314, 999]
+    scsac [66, 314, 2025]
+    NISAC [7, 66, 73, 100]
+
+Hopper-v2 F
+    sac [7, 100, 2025]
+    scsac [73, 314, 100]
+    NISAC [42, 123, 2025]
+
+Hopper-v2 M
+    sac [7, 100, 2025]
+    scsac [ 66, 100, 73]
+    NISAC [42, 123, 2025]
+
+HalfCheetah-v2
+    sac [66, 123, 7]
+    scsac [66, 123, 7]
+    NISAC [66, 123, 7]
+
+
