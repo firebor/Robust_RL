@@ -24,7 +24,6 @@ gym.logger.set_level(logging.ERROR)
 # os.environ['LD_LIBRARY_PATH'] = "/home/cmdout/.mujoco/mujoco210/bin:/usr/lib/nvidia"
 
 # os.makedirs('./model_weights', exist_ok=True)
-opio = [1774, 3118, 3609, 4888, 5480, 5463, 5302, 5115, 4968, 4591, 4118]
 
 def worker(args):
     """
