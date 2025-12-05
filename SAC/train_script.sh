@@ -8,7 +8,7 @@ max_processes=5
 
 Path_prefix="train_result"
 exp_name="default-exp"  # 添加实验名称参数
-env_name="InvertedDoublePendulum-v2"
+env_name="Hopper-v2"
 log_dir="script_logs"
 # steps=200000
 # eval_interval=625

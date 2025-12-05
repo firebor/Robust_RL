@@ -4,15 +4,15 @@
 # 在运行此脚本之前，请确保已经训练好了模型并提取了最佳模型
 
 # 设置测试参数
-seeds=(42 123 0)
-exp_name="PPO-continuous"  # 实验名称，需要与训练时的exp_name一致
-env_names=("Walker2d-v2" "Hopper-v2" "HalfCheetah-v2" "InvertedDoublePendulum-v2")
+seeds=(42 123 0 2025 7 100 999 314 73 66)
+exp_name="RLE"  # 实验名称，需要与训练时的exp_name一致
+env_names=("Walker2d-v2")
 
 # 创建测试结果目录
 test_result_dir="test_result"
 mkdir -p "${test_result_dir}"
 
-echo "开始NIPPO算法鲁棒性测试..."
+echo "开始NIRLEPPO算法鲁棒性测试..."
 echo "实验名称: ${exp_name}"
 echo "测试环境: ${env_names[@]}"
 echo "测试种子: ${seeds[@]}"
@@ -52,7 +52,8 @@ for env_name in "${env_names[@]}"; do
         python main_test_multi_cross.py \
             --env_name="$env_name" \
             --exp_name="$exp_name" \
-            --seed=$seed
+            --seed=$seed \
+            --switch_steps=70
         
         if [ $? -eq 0 ]; then
             echo "✓ 测试完成: ${env_name} seed=${seed}"

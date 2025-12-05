@@ -29,7 +29,7 @@ def get_reward_filename(algo_name, params, env_name, seed):
     base_path += '.npy'
     return base_path
 
-def draw_heatmap(env_name, algorithm_params):
+def draw_heatmap(env_name, algorithm_params, vmin=None, vmax=None):
     """
     为 algorithm_params 中的每个算法和其指定的每个种子绘制热力图。
     同时为每个算法绘制所有种子的平均值热力图。
@@ -42,8 +42,12 @@ def draw_heatmap(env_name, algorithm_params):
     print("开始绘制热力图...")
     plt.rc('font', family='Times New Roman')
     plt.rcParams['font.size'] = 16
+    
+    
     # 首先收集所有数据以确定全局最大最小值
     all_data = []
+
+
     for algo_name, params in algorithm_params.items():
         algo_seeds = params.get('seed', [])
         if not algo_seeds:
@@ -68,8 +72,13 @@ def draw_heatmap(env_name, algorithm_params):
         return
         
     # 计算全局最大最小值
-    global_min = min(data.min() for data in all_data)
-    global_max = max(data.max() for data in all_data)
+    if vmin is None or vmax is None:
+        global_min = min(data.min() for data in all_data)
+        global_max = max(data.max() for data in all_data)
+    else:
+        global_min = vmin
+        global_max = vmax
+    print(f"使用固定的颜色范围: global_min={global_min}, global_max={global_max}")
     
     # 为每个算法绘制热力图
     for algo_name, params in algorithm_params.items():

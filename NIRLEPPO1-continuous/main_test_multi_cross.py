@@ -43,7 +43,7 @@ class Args:
         self.use_reward_norm = False
         self.use_reward_scaling = False
         self.use_orthogonal_init = True
-        self.use_tanh = False
+        self.use_tanh = True
         self.hidden_width = 64
         self.noise_multiplier = 1.0
         self.device = 'cpu'
@@ -91,7 +91,7 @@ def worker(args_tuple):
         args.state_dim = state_dim
         args.action_dim = action_dim
         args.device = 'cpu'
-        
+        args.use_state_norm = True
         # 创建环境
         env = gym.make(env_name)
         env.reset()
@@ -118,6 +118,7 @@ def worker(args_tuple):
         # 创建状态归一化器
         state_norm = None
         if args.use_state_norm and norm_stats is not None:
+            print(f"使用状态归一化器norm_stats")
             state_norm = Normalization(shape=state_dim)
             state_norm.running_ms.n = norm_stats['sample_count']
             state_norm.running_ms.mean = np.array(norm_stats['mean'])
@@ -344,7 +345,7 @@ if __name__ == '__main__':
                        help='实验名称，用于保存结果')
     parser.add_argument("--seed", type=int, default=42, 
                        help="随机种子(默认42)")
-    parser.add_argument("--switch_steps", type=int, default=50, help="加噪声的步数")
+    parser.add_argument("--switch_steps", type=int, default=70, help="加噪声的步数")
 
     test_args = parser.parse_args()
     main_test(test_args) 

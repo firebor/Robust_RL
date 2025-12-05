@@ -43,7 +43,7 @@ class Args:
         self.use_reward_norm = False
         self.use_reward_scaling = False
         self.use_orthogonal_init = True
-        self.use_tanh = False
+        self.use_tanh = True
         self.hidden_width = 64
         self.noise_multiplier = 1.0
         self.device = 'cpu'

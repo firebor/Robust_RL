@@ -4,7 +4,7 @@
 # 在运行此脚本之前，请确保已经训练好了模型并提取了最佳模型
 
 # 设置测试参数
-seeds=(42)
+seeds=(42 123 0 2025 7 100 999 314 73 66)
 exp_name="PPO-continuous"  # 实验名称，需要与训练时的exp_name一致
 # env_names=("Walker2d-v2" "Hopper-v2" "HalfCheetah-v2" "InvertedDoublePendulum-v2")
 env_names=("Walker2d-v2")
