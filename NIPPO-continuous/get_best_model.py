@@ -159,9 +159,9 @@ def batch_extract_best_models(exp_name='PPO-continuous', env_list=None, min_step
 def main():
     parser = argparse.ArgumentParser(description='NIPPO算法最佳模型提取工具')
     
-    parser.add_argument('--env_name', type=str, default='Walker2d-v2',
+    parser.add_argument('--env_name', type=str, default='InvertedDoublePendulum-v2',
                        help='环境名称 (默认: Walker2d-v2)')
-    parser.add_argument('--exp_name', type=str, default='PPO-continuous',
+    parser.add_argument('--exp_name', type=str, default='default-exp',
                        help='实验名称 (默认: PPO-continuous)')
     parser.add_argument('--min_steps', type=int, default=0,
                        help='最小训练步数要求 (默认: 0)')

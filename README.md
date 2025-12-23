@@ -22,3 +22,5 @@ LOGDIR="./PDSAC/train_result"
 python tbevent_to_npy.py LOGDIR
 python draw_from_npy.py LOGDIR
 ```
+# 作训练收敛图
+训练得到tensorboard_log -> get_tensorboard_data_json.py 得到rewadr的json文件 -> draw_converg文件夹下draw_convergence.py

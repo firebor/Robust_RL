@@ -172,7 +172,7 @@ def find_seed_directories(tensorboard_logs_dir):
     
     return sorted(seed_dirs)
 
-# python get_tensorboard_data_json.py --exp_name default-exp --env_name Hopper-v2
+# python get_tensorboard_data_json.py --exp_name RLE --env_name Walker2d-v2
 def main():
     parser = argparse.ArgumentParser(description='从TensorBoard日志导出数据到JSON')
     parser.add_argument('--exp_name', type=str, required=True,
@@ -183,7 +183,7 @@ def main():
                        help='要导出的tag名称（如果未指定，使用第一个tag）')
     parser.add_argument('--train_result_dir', type=str, default='./train_result',
                        help='train_result目录路径（默认: ./train_result）')
-    parser.add_argument('--output_base_dir', type=str, default='../draw_converg/json_file/SAC',
+    parser.add_argument('--output_base_dir', type=str, default='../draw_converg/json_file/RLE',
                        help='JSON输出基础目录（默认: ./json_file）')
     
     args = parser.parse_args()

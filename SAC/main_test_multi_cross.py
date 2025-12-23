@@ -117,7 +117,7 @@ def test_policy(env_name, model_state_dict, state_dim, action_dim, agent_args,
     
     # 使用进程池
     total_tasks = len(tasks)
-    with Pool(processes=15) as pool:  # 使用30个进程
+    with Pool(processes=5) as pool:  # 使用5个进程
         # 并行执行评估
         results = []
         for idx, result in enumerate(pool.imap_unordered(worker, tasks)):

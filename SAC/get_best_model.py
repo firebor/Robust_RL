@@ -3,7 +3,7 @@
 import os
 import re
 
-def get_best_model(model_name='InvertedDoublePendulum-v2',exp_name='default-exp'):
+def get_best_model(model_name='Hopper-v2',exp_name='default-exp'):
     """
     在指定目录下查找所有子文件夹中效果最好的模型
     模型文件格式为 agent_xxx_yyyy，其中 yyyy 表示奖励值，越大越好
