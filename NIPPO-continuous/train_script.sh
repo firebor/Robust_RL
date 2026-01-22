@@ -5,7 +5,7 @@ seeds=(42 123 0 2025 7 100 999 314 73 66 61209 9834 77025 14563 30298 5571 84602
 noises=(1.0)
 max_processes=3
 exp_name="default-exp"  # Experiment name
-env_name="Humanoid-v2"     # Environment name
+env_name="Hopper-v2"     # Environment name
 
 Path_prefix="train_result"
 log_dir="script_logs"

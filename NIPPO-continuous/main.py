@@ -269,9 +269,12 @@ def main(args):
     logger.info("Training completed")
 
 def is_evl_reward(steps, args):
+    # AIGC START
+    # 使用固定步数触发评估
     eval_interval = args.evaluate_freq
-    if steps > 2000000:
-        eval_interval = eval_interval/10
+    # if steps > 2000000:
+    #     eval_interval = int(args.evaluate_freq / 10)  # 2e6步之后使用更小的评估间隔
+    # # AIGC END
     
     if steps % eval_interval == 0 and steps != 0:
         return True
@@ -280,8 +283,8 @@ def is_evl_reward(steps, args):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser("Hyperparameters Setting for PPO-continuous")
-    parser.add_argument("--max_train_steps", type=int, default=int(1.5e7), help=" Maximum number of training steps")
-    parser.add_argument("--evaluate_freq", type=float, default=1e5, help="Evaluate the policy every 'evaluate_freq' steps")
+    parser.add_argument("--max_train_steps", type=int, default=int(3e6), help=" Maximum number of training steps")
+    parser.add_argument("--evaluate_freq", type=float, default=1e4, help="Evaluate the policy every 'evaluate_freq' steps")
     parser.add_argument("--save_freq", type=int, default=20, help="Save frequency")
     parser.add_argument("--policy_dist", type=str, default="Gaussian", help="Beta or Gaussian")
     parser.add_argument("--batch_size", type=int, default=2048, help="Batch size")
